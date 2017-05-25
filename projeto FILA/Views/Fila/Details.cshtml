@@ -1,0 +1,50 @@
+﻿@model projeto_FILA.Models.Fila
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Fila</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.NomeCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.NomeCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcionario.NomeFuncionario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcionario.NomeFuncionario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Servico.NomeServico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Servico.NomeServico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Situacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Situacao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FilaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

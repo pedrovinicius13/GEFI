@@ -1,0 +1,75 @@
+﻿@model IEnumerable<projeto_FILA.Models.Fila>
+@using projeto_FILA.Models
+@{
+    ViewBag.Title = "Index";
+    string corFundo = "White";
+
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<td>
+    @Html.ActionLink("Home", "Index", "home")
+    @Html.ActionLink("Clientes", "Index", "Cliente")
+    @Html.ActionLink("Funcionarios", "Index", "Funcionarios")
+    @Html.ActionLink("Serviços", "Index", "Servico")
+</td>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.NomeCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Funcionario.NomeFuncionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Servico.NomeServico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Situacao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.NomeCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Funcionario.NomeFuncionario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Servico.NomeServico)
+        </td>
+        
+        @if (item.Situacao == Situacao.Atendido)
+        {
+            corFundo = "Green";
+        }
+        else if (item.Situacao == Situacao.EmEspera)
+        {
+            corFundo = "Yellow";
+        }
+        else
+        {
+            corFundo = "Orange";
+        }
+
+        <td style="background-color:@corFundo">
+
+
+            @Html.DisplayFor(modelItem => item.Situacao)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FilaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FilaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FilaID })
+        </td>
+    </tr>
+}
+
+</table>

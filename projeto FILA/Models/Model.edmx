@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="ClienteID" />
+          </Key>
+          <Property Name="ClienteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeCliente" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="CPF" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="Celular" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Filas">
+          <Key>
+            <PropertyRef Name="FilaID" />
+          </Key>
+          <Property Name="FilaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Situacao" Type="int" Nullable="false" />
+          <Property Name="ClienteID" Type="int" Nullable="false" />
+          <Property Name="FuncionarioID" Type="int" Nullable="false" />
+          <Property Name="ServicoID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Funcionarios">
+          <Key>
+            <PropertyRef Name="FuncionarioID" />
+          </Key>
+          <Property Name="FuncionarioID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeFuncionario" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servicoes">
+          <Key>
+            <PropertyRef Name="ServicoID" />
+          </Key>
+          <Property Name="ServicoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeServico" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Preco" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_Filas_dbo_Clientes_ClienteID">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Filas" Type="Self.Filas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="ClienteID" />
+            </Principal>
+            <Dependent Role="Filas">
+              <PropertyRef Name="ClienteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Filas_dbo_Funcionarios_FuncionarioID">
+          <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Filas" Type="Self.Filas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionarios">
+              <PropertyRef Name="FuncionarioID" />
+            </Principal>
+            <Dependent Role="Filas">
+              <PropertyRef Name="FuncionarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Filas_dbo_Servicoes_ServicoID">
+          <End Role="Servicoes" Type="Self.Servicoes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Filas" Type="Self.Filas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicoes">
+              <PropertyRef Name="ServicoID" />
+            </Principal>
+            <Dependent Role="Filas">
+              <PropertyRef Name="ServicoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Filas" EntityType="Self.Filas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Funcionarios" EntityType="Self.Funcionarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicoes" EntityType="Self.Servicoes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_Filas_dbo_Clientes_ClienteID" Association="Self.FK_dbo_Filas_dbo_Clientes_ClienteID">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Filas" EntitySet="Filas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Filas_dbo_Funcionarios_FuncionarioID" Association="Self.FK_dbo_Filas_dbo_Funcionarios_FuncionarioID">
+            <End Role="Funcionarios" EntitySet="Funcionarios" />
+            <End Role="Filas" EntitySet="Filas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Filas_dbo_Servicoes_ServicoID" Association="Self.FK_dbo_Filas_dbo_Servicoes_ServicoID">
+            <End Role="Servicoes" EntitySet="Servicoes" />
+            <End Role="Filas" EntitySet="Filas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="ClienteID" />
+          </Key>
+          <Property Name="ClienteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeCliente" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CPF" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Celular" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Filas" Relationship="Self.FK_dbo_Filas_dbo_Clientes_ClienteID" FromRole="Clientes" ToRole="Filas" />
+        </EntityType>
+        <EntityType Name="Filas">
+          <Key>
+            <PropertyRef Name="FilaID" />
+          </Key>
+          <Property Name="FilaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Situacao" Type="Int32" Nullable="false" />
+          <Property Name="ClienteID" Type="Int32" Nullable="false" />
+          <Property Name="FuncionarioID" Type="Int32" Nullable="false" />
+          <Property Name="ServicoID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK_dbo_Filas_dbo_Clientes_ClienteID" FromRole="Filas" ToRole="Clientes" />
+          <NavigationProperty Name="Funcionarios" Relationship="Self.FK_dbo_Filas_dbo_Funcionarios_FuncionarioID" FromRole="Filas" ToRole="Funcionarios" />
+          <NavigationProperty Name="Servicoes" Relationship="Self.FK_dbo_Filas_dbo_Servicoes_ServicoID" FromRole="Filas" ToRole="Servicoes" />
+        </EntityType>
+        <EntityType Name="Funcionarios">
+          <Key>
+            <PropertyRef Name="FuncionarioID" />
+          </Key>
+          <Property Name="FuncionarioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeFuncionario" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Filas" Relationship="Self.FK_dbo_Filas_dbo_Funcionarios_FuncionarioID" FromRole="Funcionarios" ToRole="Filas" />
+        </EntityType>
+        <EntityType Name="Servicoes">
+          <Key>
+            <PropertyRef Name="ServicoID" />
+          </Key>
+          <Property Name="ServicoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeServico" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Preco" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Filas" Relationship="Self.FK_dbo_Filas_dbo_Servicoes_ServicoID" FromRole="Servicoes" ToRole="Filas" />
+        </EntityType>
+        <Association Name="FK_dbo_Filas_dbo_Clientes_ClienteID">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Filas" Type="Self.Filas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="ClienteID" />
+            </Principal>
+            <Dependent Role="Filas">
+              <PropertyRef Name="ClienteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Filas_dbo_Funcionarios_FuncionarioID">
+          <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Filas" Type="Self.Filas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionarios">
+              <PropertyRef Name="FuncionarioID" />
+            </Principal>
+            <Dependent Role="Filas">
+              <PropertyRef Name="FuncionarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Filas_dbo_Servicoes_ServicoID">
+          <End Role="Servicoes" Type="Self.Servicoes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Filas" Type="Self.Filas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicoes">
+              <PropertyRef Name="ServicoID" />
+            </Principal>
+            <Dependent Role="Filas">
+              <PropertyRef Name="ServicoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+          <EntitySet Name="Filas" EntityType="Self.Filas" />
+          <EntitySet Name="Funcionarios" EntityType="Self.Funcionarios" />
+          <EntitySet Name="Servicoes" EntityType="Self.Servicoes" />
+          <AssociationSet Name="FK_dbo_Filas_dbo_Clientes_ClienteID" Association="Self.FK_dbo_Filas_dbo_Clientes_ClienteID">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Filas" EntitySet="Filas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Filas_dbo_Funcionarios_FuncionarioID" Association="Self.FK_dbo_Filas_dbo_Funcionarios_FuncionarioID">
+            <End Role="Funcionarios" EntitySet="Funcionarios" />
+            <End Role="Filas" EntitySet="Filas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Filas_dbo_Servicoes_ServicoID" Association="Self.FK_dbo_Filas_dbo_Servicoes_ServicoID">
+            <End Role="Servicoes" EntitySet="Servicoes" />
+            <End Role="Filas" EntitySet="Filas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="Model.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+                <ScalarProperty Name="NomeCliente" ColumnName="NomeCliente" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Filas">
+            <EntityTypeMapping TypeName="Model.Filas">
+              <MappingFragment StoreEntitySet="Filas">
+                <ScalarProperty Name="FilaID" ColumnName="FilaID" />
+                <ScalarProperty Name="Situacao" ColumnName="Situacao" />
+                <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+                <ScalarProperty Name="FuncionarioID" ColumnName="FuncionarioID" />
+                <ScalarProperty Name="ServicoID" ColumnName="ServicoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Funcionarios">
+            <EntityTypeMapping TypeName="Model.Funcionarios">
+              <MappingFragment StoreEntitySet="Funcionarios">
+                <ScalarProperty Name="FuncionarioID" ColumnName="FuncionarioID" />
+                <ScalarProperty Name="NomeFuncionario" ColumnName="NomeFuncionario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicoes">
+            <EntityTypeMapping TypeName="Model.Servicoes">
+              <MappingFragment StoreEntitySet="Servicoes">
+                <ScalarProperty Name="ServicoID" ColumnName="ServicoID" />
+                <ScalarProperty Name="NomeServico" ColumnName="NomeServico" />
+                <ScalarProperty Name="Preco" ColumnName="Preco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
