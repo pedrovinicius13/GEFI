@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using projeto_FILA.Models;
 
-namespace projeto_FILA.Controllers
+namespace Areas.Administracao.Controllers
 {
     public class FilaController : Controller
     {

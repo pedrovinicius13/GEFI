@@ -8,109 +8,109 @@ using System.Web;
 using System.Web.Mvc;
 using projeto_FILA.Models;
 
-namespace projeto_FILA.Controllers
+namespace Areas.Administracao.Controllers
 {
-    public class ServicoController : Controller
+    public class FuncionariosController : Controller
     {
         private ContextoEF db = new ContextoEF();
 
-        // GET: Servico
+        // GET: Funcionarios
         public ActionResult Index()
         {
-            return View(db.Servicoes.ToList());
+            return View(db.Funcionarios.ToList());
         }
 
-        // GET: Servico/Details/5
+        // GET: Funcionarios/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Servico servico = db.Servicoes.Find(id);
-            if (servico == null)
+            Funcionario funcionario = db.Funcionarios.Find(id);
+            if (funcionario == null)
             {
                 return HttpNotFound();
             }
-            return View(servico);
+            return View(funcionario);
         }
 
-        // GET: Servico/Create
+        // GET: Funcionarios/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Servico/Create
+        // POST: Funcionarios/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ServicoID,NomeServico")] Servico servico)
+        public ActionResult Create([Bind(Include = "FuncionarioID,NomeFuncionario")] Funcionario funcionario)
         {
             if (ModelState.IsValid)
             {
-                db.Servicoes.Add(servico);
+                db.Funcionarios.Add(funcionario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(servico);
+            return View(funcionario);
         }
 
-        // GET: Servico/Edit/5
+        // GET: Funcionarios/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Servico servico = db.Servicoes.Find(id);
-            if (servico == null)
+            Funcionario funcionario = db.Funcionarios.Find(id);
+            if (funcionario == null)
             {
                 return HttpNotFound();
             }
-            return View(servico);
+            return View(funcionario);
         }
 
-        // POST: Servico/Edit/5
+        // POST: Funcionarios/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ServicoID,NomeServico")] Servico servico)
+        public ActionResult Edit([Bind(Include = "FuncionarioID,NomeFuncionario")] Funcionario funcionario)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(servico).State = EntityState.Modified;
+                db.Entry(funcionario).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(servico);
+            return View(funcionario);
         }
 
-        // GET: Servico/Delete/5
+        // GET: Funcionarios/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Servico servico = db.Servicoes.Find(id);
-            if (servico == null)
+            Funcionario funcionario = db.Funcionarios.Find(id);
+            if (funcionario == null)
             {
                 return HttpNotFound();
             }
-            return View(servico);
+            return View(funcionario);
         }
 
-        // POST: Servico/Delete/5
+        // POST: Funcionarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Servico servico = db.Servicoes.Find(id);
-            db.Servicoes.Remove(servico);
+            Funcionario funcionario = db.Funcionarios.Find(id);
+            db.Funcionarios.Remove(funcionario);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

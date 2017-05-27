@@ -8,109 +8,109 @@ using System.Web;
 using System.Web.Mvc;
 using projeto_FILA.Models;
 
-namespace projeto_FILA.Controllers
+namespace Areas.Administracao.Controllers
 {
-    public class ClienteController : Controller
+    public class ServicoController : Controller
     {
         private ContextoEF db = new ContextoEF();
 
-        // GET: Cliente
+        // GET: Servico
         public ActionResult Index()
         {
-            return View(db.Clientes.ToList());
+            return View(db.Servicoes.ToList());
         }
 
-        // GET: Cliente/Details/5
+        // GET: Servico/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Servico servico = db.Servicoes.Find(id);
+            if (servico == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(servico);
         }
 
-        // GET: Cliente/Create
+        // GET: Servico/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Cliente/Create
+        // POST: Servico/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClienteID,NomeCliente,CPF,Celular")] Cliente cliente)
+        public ActionResult Create([Bind(Include = "ServicoID,NomeServico")] Servico servico)
         {
             if (ModelState.IsValid)
             {
-                db.Clientes.Add(cliente);
+                db.Servicoes.Add(servico);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(cliente);
+            return View(servico);
         }
 
-        // GET: Cliente/Edit/5
+        // GET: Servico/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Servico servico = db.Servicoes.Find(id);
+            if (servico == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(servico);
         }
 
-        // POST: Cliente/Edit/5
+        // POST: Servico/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClienteID,NomeCliente,CPF,Celular")] Cliente cliente)
+        public ActionResult Edit([Bind(Include = "ServicoID,NomeServico")] Servico servico)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cliente).State = EntityState.Modified;
+                db.Entry(servico).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(cliente);
+            return View(servico);
         }
 
-        // GET: Cliente/Delete/5
+        // GET: Servico/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Servico servico = db.Servicoes.Find(id);
+            if (servico == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(servico);
         }
 
-        // POST: Cliente/Delete/5
+        // POST: Servico/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cliente cliente = db.Clientes.Find(id);
-            db.Clientes.Remove(cliente);
+            Servico servico = db.Servicoes.Find(id);
+            db.Servicoes.Remove(servico);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -212,12 +212,12 @@
     <Compile Include="Areas\Administracao\Extensions\HtmlRequestHelper.cs" />
     <Compile Include="ContextoEF.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ClienteController.cs" />
-    <Compile Include="Controllers\FilaController.cs" />
-    <Compile Include="Controllers\FuncionariosController.cs" />
+    <Compile Include="Areas\Administracao\Controllers\ClienteController.cs" />
+    <Compile Include="Areas\Administracao\Controllers\FilaController.cs" />
+    <Compile Include="Areas\Administracao\Controllers\FuncionariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ServicoController.cs" />
+    <Compile Include="Areas\Administracao\Controllers\ServicoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -552,28 +552,28 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Cliente\Create.cshtml" />
-    <Content Include="Views\Cliente\Delete.cshtml" />
-    <Content Include="Views\Cliente\Details.cshtml" />
-    <Content Include="Views\Cliente\Edit.cshtml" />
-    <Content Include="Views\Cliente\Index.cshtml" />
-    <Content Include="Views\Funcionarios\Create.cshtml" />
-    <Content Include="Views\Funcionarios\Delete.cshtml" />
-    <Content Include="Views\Funcionarios\Details.cshtml" />
-    <Content Include="Views\Funcionarios\Edit.cshtml" />
-    <Content Include="Views\Funcionarios\Index.cshtml" />
-    <Content Include="Views\Servico\Create.cshtml" />
-    <Content Include="Views\Servico\Delete.cshtml" />
-    <Content Include="Views\Servico\Details.cshtml" />
-    <Content Include="Views\Servico\Edit.cshtml" />
-    <Content Include="Views\Servico\Index.cshtml" />
-    <Content Include="Views\Fila\Create.cshtml" />
-    <Content Include="Views\Fila\Delete.cshtml" />
-    <Content Include="Views\Fila\Details.cshtml" />
-    <Content Include="Views\Fila\Edit.cshtml" />
-    <Content Include="Views\Fila\Index.cshtml" />
-    <Content Include="Views\Fila\ListarPorFila.cshtml" />
-    <Content Include="Views\Fila\OrdenacaoFila.cshtml" />
+    <Content Include="Areas\Administracao\Views\Cliente\Create.cshtml" />
+    <Content Include="Areas\Administracao\Views\Cliente\Delete.cshtml" />
+    <Content Include="Areas\Administracao\Views\Cliente\Details.cshtml" />
+    <Content Include="Areas\Administracao\Views\Cliente\Edit.cshtml" />
+    <Content Include="Areas\Administracao\Views\Cliente\Index.cshtml" />
+    <Content Include="Areas\Administracao\Views\Funcionarios\Create.cshtml" />
+    <Content Include="Areas\Administracao\Views\Funcionarios\Delete.cshtml" />
+    <Content Include="Areas\Administracao\Views\Funcionarios\Details.cshtml" />
+    <Content Include="Areas\Administracao\Views\Funcionarios\Edit.cshtml" />
+    <Content Include="Areas\Administracao\Views\Funcionarios\Index.cshtml" />
+    <Content Include="Areas\Administracao\Views\Servico\Create.cshtml" />
+    <Content Include="Areas\Administracao\Views\Servico\Delete.cshtml" />
+    <Content Include="Areas\Administracao\Views\Servico\Details.cshtml" />
+    <Content Include="Areas\Administracao\Views\Servico\Edit.cshtml" />
+    <Content Include="Areas\Administracao\Views\Servico\Index.cshtml" />
+    <Content Include="Areas\Administracao\Views\Fila\Create.cshtml" />
+    <Content Include="Areas\Administracao\Views\Fila\Delete.cshtml" />
+    <Content Include="Areas\Administracao\Views\Fila\Details.cshtml" />
+    <Content Include="Areas\Administracao\Views\Fila\Edit.cshtml" />
+    <Content Include="Areas\Administracao\Views\Fila\Index.cshtml" />
+    <Content Include="Areas\Administracao\Views\Fila\ListarPorFila.cshtml" />
+    <Content Include="Areas\Administracao\Views\Fila\OrdenacaoFila.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
