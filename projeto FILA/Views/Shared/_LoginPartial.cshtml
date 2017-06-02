@@ -19,12 +19,12 @@ else
 @{ 
     if (Request.IsAuthenticated)
     {
-        if (User.IsInRole("Master"))
+        if (User.IsInRole("Administrador"))
         {
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Registrar", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
             }
         }
     }
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Entrar", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
