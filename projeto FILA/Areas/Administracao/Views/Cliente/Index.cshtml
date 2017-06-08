@@ -1,16 +1,17 @@
 ﻿@model IEnumerable<projeto_FILA.Models.Cliente>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Clientes";
 }
 
-<h2>Index</h2>
+<h2>Clientes</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <li><a href="/Administracao/Cliente/Create" class="btn btn-primary btn-success"><span class="glyphicon glyphicon-pencil"><span>Add</span></a></li>
+    @*<a class="btn icon-btn btn-success" href="/Administracao/Cliente/Create"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Adicionar</a>*@
 </p>
 
-@Html.ActionLink("Home", "Index", "home")
+@*@Html.ActionLink("Home", "Index", "home")*@
 <table class="table">
     <tr>
         <th>
@@ -37,6 +38,7 @@
             @Html.DisplayFor(modelItem => item.Celular)
         </td>
         <td>
+            <button Type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-ok"></i></button>
             @Html.ActionLink("Edit", "Edit", new { id=item.ClienteID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ClienteID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ClienteID })
