@@ -6,22 +6,22 @@ using System.Web.Mvc;
 
 namespace Areas.Administracao.Controllers
 {
-    //[Authorize(Roles = "Administrador")]
+    [Authorize(Roles = "Administrador")]
     public class HomeController : Controller
     {
         // GET: Administracao/Home
         //Nesee controler apenas o ADM tem acesso
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
         public ActionResult Index()
         {
             return View();
         }
-        [AllowAnonymous]
+       // [AllowAnonymous]
         public ActionResult Detalhes()
         {
           return View();
         }
-        [Authorize(Roles = "Usuario")]
+        //[Authorize(Roles = "Usuario")]
         public ActionResult Usuario()
         {
             return View();
