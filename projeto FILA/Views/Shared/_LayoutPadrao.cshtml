@@ -32,8 +32,8 @@
 
 <body>
 
-    <div class="brand">Barbearia Imperio</div>
-    <div class="address-bar">Avenida Pernabuco,Nº 06 | CPA II, CEP 78000-000 | (65)99244-4589</div>
+    @*<div class="brand">Barbearia Imperio</div>
+    <div class="address-bar">Avenida Pernabuco,Nº 06 | CPA II, CEP 78000-000 | (65)99244-4589</div>*@
 
     <!-- Navigation -->
     <nav class="navbar navbar-default" role="navigation">
@@ -56,7 +56,7 @@
                         <a href="index">Home</a>
                     </li>
                     <li>
-                        <a href="about.html">Sobre</a>
+                        <a href="about.html">Serviços</a>
                     </li>
                     @*<li>
                         <a href="blog.html">Blog</a>
@@ -66,7 +66,7 @@
                     </li>
                 </ul>
                 @*Chama arquivo parcial de links de entrar e sair*@
-                @Html.Partial("_LoginPartial")
+                @*@Html.Partial("_LoginPartial")*@
 
             </div>
             <!-- /.navbar-collapse -->
@@ -116,7 +116,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <h5>@Html.Partial("_LoginPartial")</h5>
+                    @*<p>Copyright &copy; Your Website 2014</p>*@
                 </div>
             </div>
         </div>

@@ -403,6 +403,7 @@
     <Content Include="Areas\Administracao\assets\js\typeahead.jquery.min.js" />
     <Content Include="Areas\Administracao\assets\swf\copy_csv_xls_pdf.swf" />
     <Content Include="Areas\Administracao\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="contact.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
