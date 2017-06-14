@@ -209,6 +209,7 @@
     <Compile Include="Areas\Administracao\Controllers\AceTemplateAdmin\UIElementsController.cs" />
     <Compile Include="Areas\Administracao\Controllers\AceTemplateAdmin\WidgetsController.cs" />
     <Compile Include="Areas\Administracao\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Administracao\Controllers\RelatorioController.cs" />
     <Compile Include="Areas\Administracao\Extensions\HtmlRequestHelper.cs" />
     <Compile Include="ContextoEF.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -582,6 +583,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administracao\Models\" />
+    <Folder Include="Areas\Administracao\Views\Relatorio\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

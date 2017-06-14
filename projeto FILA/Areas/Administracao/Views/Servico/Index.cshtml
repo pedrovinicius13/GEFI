@@ -6,6 +6,32 @@
 
 <h2>Index</h2>
 
+<div class="panel panel-body">
+    <div class="panel-heading">
+        <div class="panel-title">Filtrar</div>
+        <div class="panel-body">
+
+            <div class="col-lg-4">
+                <label for="TipoServico">Tipo de Serviço:</label>
+                <select id="TipoServico">
+                    <option>Barba</option>
+                    <option>Corte</option>
+                    <option>Sombrançelha</option>
+                </select>
+                <button>Filtrar</button>
+            </div>
+
+            <div class="col-lg-8">
+                <label for="Periodo">Período:</label>
+                Início: <input type="text" name="DataInicio" /> Fim: <input type="text" name="DataFim" /> 
+                <button>Filtrar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
