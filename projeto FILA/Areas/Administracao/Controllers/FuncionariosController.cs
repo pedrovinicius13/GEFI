@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using projeto_FILA.Models;
+using PagedList;
 
 namespace Areas.Administracao.Controllers
 {
@@ -15,9 +16,45 @@ namespace Areas.Administracao.Controllers
         private ContextoEF db = new ContextoEF();
 
         // GET: Funcionarios
-        public ActionResult Index()
+
+            public ActionResult Consultar(int? pagina, string NomeF = null)
         {
-            return View(db.Funcionarios.ToList());
+            int tamanhoPagina = 5;
+            int numeroPagina = pagina ?? 1;
+            var FuncionarioP = new Object();
+
+            if(!String.IsNullOrEmpty(NomeF))
+            {
+                FuncionarioP =db.Funcionarios
+                    .Where(r => r.NomeFuncionario.ToUpper().Contains(NomeF.ToUpper()))
+                    .OrderBy(r => r.NomeFuncionario)
+                    .ToPagedList(numeroPagina, tamanhoPagina);
+            }
+            else
+            {
+                FuncionarioP = db.Funcionarios.OrderBy(p => p.NomeFuncionario).ToPagedList(numeroPagina, tamanhoPagina);
+            }
+            return View("Index", FuncionarioP);
+        }
+
+        public ActionResult Index(string ordenacao, int? pagina)
+        {
+            ViewBag.OrdenacaoAtual = ordenacao;
+            ViewBag.nomeParam = string.IsNullOrEmpty(ordenacao) ? "Nome_Desc" : "";
+            var FuncionarioOr = from c in db.Funcionarios select c;
+            int tamanhoPagina = 5;
+            int numeroPagina = pagina ?? 1;
+            switch (ordenacao)
+            {
+                case "Nome_Desc":
+                    FuncionarioOr = FuncionarioOr.OrderByDescending(s => s.NomeFuncionario);
+                    break;
+                default:
+                    FuncionarioOr = FuncionarioOr.OrderBy(s => s.NomeFuncionario);
+                    break;
+            }
+            return View(FuncionarioOr.ToPagedList(numeroPagina, tamanhoPagina));
+            //return View(db.Funcionarios.OrderBy(p => p.NomeFuncionario).ToPagedList(numeroPagina, tamanhoPagina));
         }
 
         // GET: Funcionarios/Details/5

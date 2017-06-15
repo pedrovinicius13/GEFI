@@ -1,10 +1,18 @@
-﻿@model IEnumerable<projeto_FILA.Models.Cliente>
-
+﻿@model PagedList.IPagedList<projeto_FILA.Models.Cliente>
+@using PagedList
+@using PagedList.Mvc
 @{
     ViewBag.Title = "Clientes";
 }
 
 <h2>Clientes</h2>
+
+<form method="get" action="/Administracao/Cliente/Consultar">
+    <p>
+        <input type="search" name="NomeF" />
+        <input type="submit" value="Pesquisar" /> <input type="submit" value="Mostrar Todos" />
+    </p>
+</form>
 
 <p>
     <li><a href="/Administracao/Cliente/Create" class="btn btn-primary btn-success"><span class="glyphicon glyphicon-pencil"><span>Add</span></a></li>
@@ -15,13 +23,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NomeCliente)
+            @Html.ActionLink("NomeCliente", "Index" , new { ordenacao = ViewBag.NomeParam })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CPF)
+            @Html.DisplayName("CPF")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Celular)
+            @Html.DisplayName("Celular")
         </th>
         <th></th>
     </tr>
@@ -38,7 +46,9 @@
             @Html.DisplayFor(modelItem => item.Celular)
         </td>
         <td>
-            <button Type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-ok"></i></button>
+            <button Type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-edit"   ></i></button>
+            <button Type="button" class="btn btn-warning btn-circle"><i class="glyphicon glyphicon-eye-open"></i></button>
+            <button Type="button" class="btn btn-danger btn-circle"><i class="glyphicon glyphicon-remove-circle"></i></button>
             @Html.ActionLink("Edit", "Edit", new { id=item.ClienteID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ClienteID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ClienteID })
@@ -47,3 +57,5 @@
 }
 
 </table>
+Página @Model.PageNumber de @Model.PageCount
+@Html.PagedListPager(Model, Page => Url.Action("Index", new { pagina = Page, ordenacao = ViewBag.OrdenacaoAtual })) 

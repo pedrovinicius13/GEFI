@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using projeto_FILA.Models;
+using PagedList;
 
 namespace Areas.Administracao.Controllers
 {
@@ -15,9 +16,47 @@ namespace Areas.Administracao.Controllers
         private ContextoEF db = new ContextoEF();
 
         // GET: Cliente
-        public ActionResult Index()
+        public ActionResult Consultar(int? pagina, string NomeF = null)
         {
-            return View(db.Clientes.ToList());
+            int tamanhoPagina = 5;
+            int numeroPagina = pagina ?? 1;
+            var ClienteP = new Object();
+
+            if (!String.IsNullOrEmpty(NomeF))
+            {
+                ClienteP = db.Clientes
+                    .Where(r => r.NomeCliente.ToUpper().Contains(NomeF.ToUpper()))
+                    .OrderBy(r => r.NomeCliente)
+                    .ToPagedList(numeroPagina, tamanhoPagina);
+            }
+            else
+            {
+                ClienteP = db.Clientes.OrderBy(p => p.NomeCliente).ToPagedList(numeroPagina, tamanhoPagina);
+            }
+            return View("Index", ClienteP);
+        }
+
+
+        public ActionResult Index(string ordenacao, int? pagina)
+
+        {
+            ViewBag.OrdenacaoAtual = ordenacao;
+            ViewBag.nomeParam = string.IsNullOrEmpty(ordenacao) ? "Nome_Desc" : "";
+            var clientesOr = from c in db.Clientes select c;
+            int tamanhoPagina = 5;
+            int numeroPagina = pagina ?? 1;
+            switch(ordenacao)
+            {
+                case "Nome_Desc":
+                    clientesOr = clientesOr.OrderByDescending(s => s.NomeCliente);
+                    break;
+                default:
+                    clientesOr = clientesOr.OrderBy(s => s.NomeCliente);
+                    break;                      
+            }
+            return View(clientesOr.ToPagedList(numeroPagina, tamanhoPagina));
+
+            //return View(db.Clientes.OrderBy(p => p.NomeCliente).ToPagedList(numeroPagina, tamanhoPagina));
         }
 
         // GET: Cliente/Details/5
