@@ -16,7 +16,8 @@
 </form>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a class="btn icon-btn btn-success" href="/Administracao/Funcionarios/Create"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Adicionar</a>
+    @*@Html.ActionLink("Create New", "Create")*@
 </p>
 
 
@@ -36,12 +37,14 @@
             @Html.DisplayFor(modelItem => item.NomeFuncionario)
         </td>
         <td>
-            <button Type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-edit"></i></button>
-            <button Type="button" class="btn btn-warning btn-circle"><i class="glyphicon glyphicon-eye-open"></i></button>
-            <button Type="button" class="btn btn-danger btn-circle"><i class="glyphicon glyphicon-remove-circle"></i></button>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FuncionarioID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FuncionarioID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FuncionarioID })
+            
+            @*<button class="btn btn-info"> <i class="glyphicon glyphicon-edit"></i></button>
+            <button class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i></button>
+            <button class="btn btn-danger"><i class="glyphicon glyphicon-remove-circle"></i></button>*@
+            <a href="@Url.Action("Edit", new { id=item.FuncionarioID })" title="Editar" class="btn btn-info"><i class="glyphicon glyphicon-edit"></i></a>
+            <a href="@Url.Action("Details", new { id=item.FuncionarioID })" title="Visualizar" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i></a>
+            <a href="@Url.Action("Delete", new { id=item.FuncionarioID })" title="Deletar" class="btn btn-danger"><i class="glyphicon glyphicon-remove-circle"></i></a>
+            
         </td>
     </tr>
 }

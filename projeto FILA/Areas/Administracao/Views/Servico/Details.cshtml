@@ -1,10 +1,10 @@
 ﻿@model projeto_FILA.Models.Servico
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes";
 }
 
-<h2>Details</h2>
+<h2>Detalhes</h2>
 
 <div>
     <h4>Servico</h4>
@@ -21,6 +21,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ServicoID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("editar", "Edit", new { id = Model.ServicoID }) |
+    @Html.ActionLink("voltar", "Index")
 </p>

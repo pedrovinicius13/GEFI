@@ -15,7 +15,7 @@
 </form>
 
 <p>
-    <li><a href="/Administracao/Cliente/Create" class="btn btn-primary btn-success"><span class="glyphicon glyphicon-pencil"><span>Add</span></a></li>
+    <a class="btn icon-btn btn-success" href="/Administracao/Cliente/Create"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Adicionar</a>
     @*<a class="btn icon-btn btn-success" href="/Administracao/Cliente/Create"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Adicionar</a>*@
 </p>
 
@@ -46,12 +46,13 @@
             @Html.DisplayFor(modelItem => item.Celular)
         </td>
         <td>
-            <button Type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-edit"   ></i></button>
-            <button Type="button" class="btn btn-warning btn-circle"><i class="glyphicon glyphicon-eye-open"></i></button>
-            <button Type="button" class="btn btn-danger btn-circle"><i class="glyphicon glyphicon-remove-circle"></i></button>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ClienteID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ClienteID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ClienteID })
+            @*<button class="btn btn-info"> <i class="glyphicon glyphicon-edit"></i></button>
+        <button class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i></button>
+        <button class="btn btn-danger"><i class="glyphicon glyphicon-remove-circle"></i></button>*@
+            <a href="@Url.Action("Edit", new { id=item.ClienteID })" title="Editar" class="btn btn-info"><i class="glyphicon glyphicon-edit"></i></a>
+            <a href="@Url.Action("Details", new { id=item.ClienteID })" title="Visualizar" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i></a>
+            <a href="@Url.Action("Delete", new { id=item.ClienteID })" title="Deletar" class="btn btn-danger"><i class="glyphicon glyphicon-remove-circle"></i></a>
+
         </td>
     </tr>
 }
