@@ -514,6 +514,7 @@
     <Content Include="Areas\Administracao\Views\Shared\NavigatorBarList - Cópia .cshtml" />
     <Content Include="Areas\Administracao\Views\Home\Detalhes.cshtml" />
     <Content Include="Areas\Administracao\Views\Home\Usuario.cshtml" />
+    <Content Include="Areas\Administracao\Views\Account\Register.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -551,7 +552,7 @@
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\RegisterCopia.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
