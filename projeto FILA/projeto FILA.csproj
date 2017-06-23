@@ -266,6 +266,7 @@
     <Compile Include="Models\Situacao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="TotalDeServicoPorTipoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administracao\assets\avatars\avatar.png" />
@@ -515,6 +516,7 @@
     <Content Include="Areas\Administracao\Views\Home\Detalhes.cshtml" />
     <Content Include="Areas\Administracao\Views\Home\Usuario.cshtml" />
     <Content Include="Areas\Administracao\Views\Account\Register.cshtml" />
+    <Content Include="Areas\Administracao\Views\Relatorio\TotalDeServicoPorTipo.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -591,7 +593,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administracao\Models\" />
-    <Folder Include="Areas\Administracao\Views\Relatorio\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
