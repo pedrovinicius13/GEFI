@@ -16,8 +16,8 @@ namespace projeto_FILA.Models
         public string NomeCliente { get; set; }
 
         [Required(ErrorMessage = "O campo e obrigatótio")]
-        [MinLength(11, ErrorMessage = "O tamanho mínimo são 11 caracteres.")]
-        [StringLength(11, ErrorMessage = "Limite de 11 caracteres")]
+        [MinLength(11, ErrorMessage = "O tamanho mínimo são 11 digitos.")]
+        //[StringLength(11, ErrorMessage = "Limite de 11 caracteres")]
         [Display(Name = "CPF")]
         public string CPF { get; set; }
 
