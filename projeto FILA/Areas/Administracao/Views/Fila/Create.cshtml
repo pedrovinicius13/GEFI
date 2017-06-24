@@ -7,10 +7,10 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Fila</h4>
         <hr />
@@ -25,16 +25,14 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.ClienteID, "ClienteID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="row-fluid">
 
-                <select multiple name="ClienteID" id="ClienteID" class="form-control">
-
+                <select class="selectpicker" data-show-subtext="true" data-live-search="true">
                     @foreach (var item in ViewBag.Clientes)
                     {
+                        <option data-subtext="@item.NomeCliente">@item.NomeCliente</option>
 
-                        <option value="@item.ClienteID">@item.NomeCliente</option>
                     }
-
                 </select>
 
                 @*@Html.DropDownList("ClienteID", null, htmlAttributes: new { @class = "form-control" })*@
@@ -75,4 +73,8 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 }
