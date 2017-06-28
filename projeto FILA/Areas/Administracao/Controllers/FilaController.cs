@@ -20,15 +20,8 @@ namespace Areas.Administracao.Controllers
         {
             int tamanhoPagina = 5;
             int numeroPagina = pagina ?? 1;
-
-            var filas = db.Filas
-                .Include(f => f.Cliente)
-                .Include(f => f.Funcionario)
-                .Include(f => f.Servico)
-                .OrderBy(p => p.FilaID)
-                .ToList();
-
-            return View(filas);
+            var filas = db.Filas.Include(f => f.Cliente).Include(f => f.Funcionario).Include(f => f.Servico);
+            return View(db.Filas.OrderBy(p => p.FilaID).ToPagedList(tamanhoPagina, numeroPagina));
         }
 
 

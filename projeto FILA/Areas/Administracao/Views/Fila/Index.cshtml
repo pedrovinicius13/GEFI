@@ -1,8 +1,7 @@
-﻿@using PagedList
-@using PagedList.Mvc
+﻿@model PagedList.IPagedList<projeto_FILA.Models.Fila>
 @using projeto_FILA.Models
-@model  IEnumerable<projeto_FILA.Models.Fila>
-
+@using PagedList
+@using PagedList.Mvc
 @{
     ViewBag.Title = "Fila";
     string corFundo = "White";
@@ -88,16 +87,16 @@
             @Html.DisplayFor(modelItem => item.Situacao)
         </td>
         <td>
-            <a href="@Url.Action("Edit", new { id=item.FilaID })" title="Editar" class="btn btn-info"><i class="glyphicon glyphicon-edit"></i></a>
-            <a href="@Url.Action("Details", new { id=item.FilaID })" title="Visualizar" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i></a>
-            <a href="@Url.Action("Delete", new { id=item.FilaID })" title="Deletar" class="btn btn-danger"><i class="glyphicon glyphicon-remove-circle"></i></a>
-            @*@Html.ActionLink("Edit", "Edit", new { id=item.FilaID }) |
+            <button Type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-edit"></i></button>
+            <button Type="button" class="btn btn-warning btn-circle"><i class="glyphicon glyphicon-eye-open"></i></button>
+            <button Type="button" class="btn btn-danger btn-circle"><i class="glyphicon glyphicon-remove-circle"></i></button>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FilaID }) |
             @Html.ActionLink("Details", "Details", new { id=item.FilaID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FilaID })*@
+            @Html.ActionLink("Delete", "Delete", new { id=item.FilaID })
         </td>
     </tr>
 }
 
 </table>
-@*Página @Model.PageNumber de @Model.PageCount
-@Html.PagedListPager(Model, Page => Url.Action("Index", new { pagina = Page, ordenacao = ViewBag.OrdenacaoAtual }))*@ 
+Página @Model.PageNumber de @Model.PageCount
+@Html.PagedListPager(Model, Page => Url.Action("Index", new { pagina = Page })) 
