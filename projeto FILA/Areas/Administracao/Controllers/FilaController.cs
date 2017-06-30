@@ -73,7 +73,7 @@ namespace Areas.Administracao.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FilaID,Situacao,ClienteID,FuncionarioID,ServicoID")] Fila fila)
+        public ActionResult Create(Fila fila)
         {
             if (ModelState.IsValid)
             {
@@ -111,7 +111,7 @@ namespace Areas.Administracao.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FilaID,Situacao,ClienteID,FuncionarioID,ServicoID")] Fila fila)
+        public ActionResult Edit(Fila fila)
         {
             if (ModelState.IsValid)
             {

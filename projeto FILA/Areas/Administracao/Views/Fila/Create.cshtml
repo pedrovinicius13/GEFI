@@ -27,7 +27,7 @@
             @Html.LabelFor(model => model.ClienteID, "ClienteID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="row-fluid">
 
-                <select class="selectpicker" data-live-search="true">
+                <select class="selectpicker" data-live-search="true" id="ClienteID" name="ClienteID">
                     @foreach (var item in ViewBag.Clientes)
                     {
                         <option>@item.NomeCliente</option>
