@@ -1,7 +1,7 @@
 ﻿<ul class="nav nav-list">
     <li class="">
         <a href="@Url.Action("Index", "Home")">
-            <i class="menu-icon fa fa-tachometer"></i>
+            <i class="menu-icon fa fa-home"></i>
             <span class="menu-text"> Principal </span>
         </a>
 
@@ -12,7 +12,7 @@
         <a href="#" class="dropdown-toggle">
             <i class="menu-icon fa fa-desktop"></i>
             <span class="menu-text">
-                UI &amp; Elements
+                Cadastros
             </span>
 
             <b class="arrow fa fa-angle-down"></b>
@@ -23,76 +23,49 @@
         <ul class="submenu">
             
             <li class="">
-                <a href="@Url.Action("Typography", "UIElements")">
+                <a href="@Url.Action("Index", "Cliente")">
                     <i class="menu-icon fa fa-caret-right"></i>
-                    Typography
+                    Clientes
                 </a>
 
                 <b class="arrow"></b>
             </li>
 
             <li class="">
-                <a href="@Url.Action("Elements", "UIElements")">
+                <a href="@Url.Action("Index", "Funcionarios")">
                     <i class="menu-icon fa fa-caret-right"></i>
-                    Elements
+                    Funcionários
                 </a>
 
                 <b class="arrow"></b>
             </li>
 
             <li class="">
-                <a href="@Url.Action("Buttons", "UIElements")">
+                <a href="@Url.Action("Index", "Servico")">
                     <i class="menu-icon fa fa-caret-right"></i>
-                    Buttons &amp; Icons
+                    Serviços
                 </a>
 
                 <b class="arrow"></b>
             </li>
 
             <li class="">
-                <a href="@Url.Action("ContentSliders", "UIElements")">
+                <a href="@Url.Action("Index", "Fila")">
                     <i class="menu-icon fa fa-caret-right"></i>
-                    Content Sliders
+                    Fila
                 </a>
 
                 <b class="arrow"></b>
             </li>
 
-            <li class="">
-                <a href="@Url.Action("TreeView", "UIElements")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Treeview
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-                <a href="@Url.Action("JQueryUI", "UIElements")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    jQuery UI
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-                <a href="@Url.Action("NestableLists", "UIElements")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Nestable Lists
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-
-            
+           
         </ul>
     </li>
 
     <li class="">
         <a href="#" class="dropdown-toggle">
-            <i class="menu-icon fa fa-list"></i>
-            <span class="menu-text"> Tables </span>
+            <i class="menu-icon fa fa-print"></i>
+            <span class="menu-text"> Relatórios </span>
 
             <b class="arrow fa fa-angle-down"></b>
         </a>
@@ -101,174 +74,40 @@
 
         <ul class="submenu">
             <li class="">
-                <a href="@Url.Action("Table", "Tables")">
+                <a href="@Url.Action("TotalDeServicoPorTipo", "Relatorio")">
                     <i class="menu-icon fa fa-caret-right"></i>
-                    Simple &amp; Dynamic
+                    Relatorios de Tipos de Serviço
                 </a>
 
                 <b class="arrow"></b>
             </li>
 
             <li class="">
-                <a href="@Url.Action("JQGrid", "Tables")">
+                <a href="@Url.Action("JQGrid", "Relatorio")">
                     <i class="menu-icon fa fa-caret-right"></i>
-                    jqGrid plugin
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-        </ul>
-    </li>
-
-    <li class="">
-        <a href="#" class="dropdown-toggle">
-            <i class="menu-icon fa fa-pencil-square-o"></i>
-            <span class="menu-text"> Forms </span>
-
-            <b class="arrow fa fa-angle-down"></b>
-        </a>
-
-        <b class="arrow"></b>
-
-        <ul class="submenu">
-            <li class="">
-                <a href="@Url.Action("FormElements", "Forms")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Form Elements
+                    Relatorios de Atendimento
                 </a>
 
                 <b class="arrow"></b>
             </li>
 
             <li class="">
-                <a href="@Url.Action("FormElements2", "Forms")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Form Elements 2
+                <a href="/Administracao/Fila/OrdenacaoFila?TipoId1=1&TipoId2=2">
+                    <i class="menu-icon fa fa-bell"></i>
+
+                    <span class="menu-text">
+                        Fila ordem
+
+                        @*<span class="badge badge-transparent tooltip-error"contextmenu="">
+                        <i class="ace-icon fa fa-list red bigger-130"></i>
+                    </span>*@
+                    </span>
                 </a>
 
                 <b class="arrow"></b>
             </li>
 
-            <li class="">
-                <a href="@Url.Action("FormWizard", "Forms")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Wizard &amp; Validation
-                </a>
 
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-                <a href="@Url.Action("WYSIWYG", "Forms")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Wysiwyg &amp; Markdown
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-                <a href="@Url.Action("Dropzone", "Forms")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Dropzone File Upload
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-        </ul>
-    </li>
-
-    <li class="">
-        <a href="@Url.Action("Index", "Widgets")">
-            <i class="menu-icon fa fa-list-alt"></i>
-            <span class="menu-text"> Widgets </span>
-        </a>
-
-        <b class="arrow"></b>
-    </li>
-
-    <li class="">
-        <a href="@Url.Action("Index", "Gallery")">
-            <i class="menu-icon fa fa-picture-o"></i>
-            <span class="menu-text"> Gallery </span>
-        </a>
-
-        <b class="arrow"></b>
-    </li>
-
-    <li class="">
-        <a href="#" class="dropdown-toggle">
-            <i class="menu-icon fa fa-tag"></i>
-            <span class="menu-text"> More Pages </span>
-
-            <b class="arrow fa fa-angle-down"></b>
-        </a>
-
-        <b class="arrow"></b>
-
-        <ul class="submenu">
-            <li class="">
-                <a href="@Url.Action("ProfilePage", "MorePages")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    User Profile
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-                <a href="@Url.Action("Inbox", "MorePages")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Inbox
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-                <a href="@Url.Action("Pricing", "MorePages")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Pricing Tables
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-                <a href="@Url.Action("Invoice", "MorePages")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Invoice
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-                <a href="@Url.Action("Timeline", "MorePages")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Timeline
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-                <a href="@Url.Action("EmailTemplates", "MorePages" )">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Email Templates
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-                <a href="@Url.Action("Login", "MorePages")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Login &amp; Register
-                </a>
-
-                <b class="arrow"></b>
-            </li>
         </ul>
     </li>
     
