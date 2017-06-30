@@ -53,16 +53,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="Home">Inicio</a>
+                        <a href="@Url.Action("Index","Home")">Inicio</a>
                     </li>
                     <li>
-                        <a href="about.html">Serviços</a>
+                        <a href="@Url.Action("About","Home")">Serviços</a>
                     </li>
-                    @*<li>
-                        <a href="blog.html">Blog</a>
-                    </li>*@
                     <li>
-                        <a href="contact.html">Contato</a>
+                        <a href="@Url.Action("Contact","Home")">Contato</a>
                     </li>
                 </ul>
                 @*Chama arquivo parcial de links de entrar e sair*@
@@ -74,7 +71,7 @@
         <!-- /.container -->
     </nav>
 
-    <div class="container">
+    <div class="container-fluid">
 
         @RenderBody()
 
@@ -115,11 +112,11 @@
     <footer>
         <div class="container">
             <div class="col-lg-12 text-center">
-                <li>
-                    <a class="btn btn-lg " href="Administracao">
+
+                    <a data-modal="" class="btn btn-lg " href="~/Account/Login">
                         <i class="glyphicon glyphicon-user pull-left"></i><span>Colaborador<br><small>Área Administrativa</small></span>
                     </a>
-                </li>
+
             </div>
             </div>
             @*<div class="container">
@@ -140,12 +137,61 @@
 
     <!-- Script to Activate the Carousel -->
     <script>
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+
+            $("a[data-modal]").on("click", function (e) {
+                $('#myModalContent').load(this.href, function () {
+                    $('#myModal').modal({
+                        keyboard: true
+                    }, 'show');
+                    bindForm(this);
+                });
+                return false;
+            });
+        });
+
+        function bindForm(dialog) {
+            $('form', dialog).submit(function () {
+                $.ajax({
+                    url: this.action,
+                    type: this.method,
+                    data: $(this).serialize(),
+                    success: function (result) {
+                        if (result.success) {
+                            $('#myModal').modal('hide');
+                            window.location.href = result.url;
+                            
+                        } else {
+                            $('#myModalContent').html(result);
+                            bindForm(dialog);
+                        }
+                    }
+                });
+                return false;
+            });
+        }
+
+
     $('.carousel').carousel({
         interval: 5000 //changes the speed
     })
     </script>
 
+    <div id="myModal" class="modal fade in">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id="myModalContent"></div>
+            </div>
+        </div>
+    </div>
+
+
+
     @RenderSection("scripts", required: false)
+
+
 
 </body>
 
