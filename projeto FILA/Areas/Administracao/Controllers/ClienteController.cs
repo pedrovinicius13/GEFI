@@ -85,7 +85,7 @@ namespace Areas.Administracao.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClienteID,NomeCliente,CPF,Celular")] Cliente cliente)
+        public ActionResult Create(Cliente cliente)
         {
             if (ModelState.IsValid)
             {
@@ -117,7 +117,7 @@ namespace Areas.Administracao.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClienteID,NomeCliente,CPF,Celular")] Cliente cliente)
+        public ActionResult Edit(Cliente cliente)
         {
             if (ModelState.IsValid)
             {

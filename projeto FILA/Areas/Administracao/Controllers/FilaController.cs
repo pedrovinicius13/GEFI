@@ -85,6 +85,7 @@ namespace Areas.Administracao.Controllers
             ViewBag.ClienteID = new SelectList(db.Clientes, "ClienteID", "NomeCliente", fila.ClienteID);
             ViewBag.FuncionarioID = new SelectList(db.Funcionarios, "FuncionarioID", "NomeFuncionario", fila.FuncionarioID);
             ViewBag.ServicoID = new SelectList(db.Servicoes, "ServicoID", "NomeServico", fila.ServicoID);
+            ViewBag.Clientes = db.Clientes.ToList();
             return View(fila);
         }
 
