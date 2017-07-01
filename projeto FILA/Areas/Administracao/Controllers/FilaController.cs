@@ -16,12 +16,14 @@ namespace Areas.Administracao.Controllers
         private ContextoEF db = new ContextoEF();
 
         // GET: Fila
-        public ActionResult Index(int? pagina)
+        public ActionResult Index()
+        //public ActionResult Index(int? pagina)
         {
-            int tamanhoPagina = 5;
-            int numeroPagina = pagina ?? 1;
+            //int tamanhoPagina = 5;
+            //int numeroPagina = pagina ?? 1;
             var filas = db.Filas.Include(f => f.Cliente).Include(f => f.Funcionario).Include(f => f.Servico);
-            return View(db.Filas.OrderBy(p => p.FilaID).ToPagedList(tamanhoPagina, numeroPagina));
+            return View(filas.ToList());
+            //return View(db.Filas.OrderBy(p => p.FilaID).ToPagedList(tamanhoPagina, numeroPagina));
         }
 
 

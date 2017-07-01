@@ -35,9 +35,9 @@ namespace Areas.Administracao.Controllers
             return View(resultado);
         }
 
-        public ActionResult TotalDeAtendimentoPorFuncionario()
+        public ActionResult RelatorioDeFuncionarios()
         {
-            var total = contexto.Funcionarios.ToList();
+            
             return View();
         }
     }

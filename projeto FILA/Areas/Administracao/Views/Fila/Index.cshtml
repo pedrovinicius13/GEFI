@@ -1,7 +1,8 @@
-﻿@model PagedList.IPagedList<projeto_FILA.Models.Fila>
+﻿@model IEnumerable<projeto_FILA.Models.Fila>
+@*@model PagedList.IPagedList<projeto_FILA.Models.Fila>*@
 @using projeto_FILA.Models
-@using PagedList
-@using PagedList.Mvc
+@*@using PagedList
+@using PagedList.Mvc*@
 @{
     ViewBag.Title = "Fila";
     string corFundo = "White";
@@ -9,7 +10,7 @@
 }
 
 <h2>Fila</h2>
-<div class="panel panel-body">
+@*<div class="panel panel-body">
     <div class="panel-heading">
         <div class="panel-title">Filtrar</div>
         <div class="panel-body">
@@ -32,7 +33,7 @@
 
         </div>
     </div>
-</div>
+</div>*@
 
 <p>
     <a class="btn icon-btn btn-success" href="/Administracao/fila/Create"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Adicionar</a>
@@ -42,21 +43,21 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayName("NomeCliente")
+            @Html.DisplayNameFor(model => model.Cliente.NomeCliente)
         </th>
         <th>
-            @Html.DisplayName("NomeFuncionario")
+            @Html.DisplayNameFor(model => model.Funcionario.NomeFuncionario)
         </th>
         <th>
-            @Html.DisplayName("NomeServico")
+            @Html.DisplayNameFor(model => model.Servico.NomeServico)
         </th>
         <th>
-            @Html.DisplayName("Situacao")
+            @Html.DisplayNameFor(model => model.Situacao)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)  {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Cliente.NomeCliente)
@@ -90,13 +91,13 @@
             <button Type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-edit"></i></button>
             <button Type="button" class="btn btn-warning btn-circle"><i class="glyphicon glyphicon-eye-open"></i></button>
             <button Type="button" class="btn btn-danger btn-circle"><i class="glyphicon glyphicon-remove-circle"></i></button>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FilaID }) |
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.FilaID }) |
             @Html.ActionLink("Details", "Details", new { id=item.FilaID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FilaID })
+            @Html.ActionLink("Delete", "Delete", new { id=item.FilaID })*@
         </td>
     </tr>
 }
 
 </table>
-Página @Model.PageNumber de @Model.PageCount
-@Html.PagedListPager(Model, Page => Url.Action("Index", new { pagina = Page })) 
+@*Página @Model.PageNumber de @Model.PageCount
+@Html.PagedListPager(Model, Page => Url.Action("Index", new { pagina = Page }))*@ 
